@@ -5,6 +5,9 @@ mongoose.connect(process.env.MONGODB_URI || process.env.MONGODB_USER, {
   useUnifiedTopology: true
 });
 
+console.clear();
+console.log(process.env.MONGODB_URI);
+
 let db = mongoose.connection;
 
 async function connectDB(client) {
