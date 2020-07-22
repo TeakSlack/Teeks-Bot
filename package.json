@@ -1,6 +1,6 @@
 {
   "name": "teeksbot",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "teek's bot",
   "main": "bot.js",
   "author": "teak",
@@ -11,5 +11,11 @@
     "got": "^11.5.1",
     "mongoose": "^5.9.25",
     "randomcolor": "^0.6.2"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  },
+  "scripts": {
+    "format": "prettier --write ."
   }
 }

@@ -1,4 +1,4 @@
 module.exports = {
-  EMBED_URL: "",
-  EMBED_TITLE: "Teek's Bot",
+  EMBED_URL: '',
+  EMBED_TITLE: "Teek's Bot"
 };

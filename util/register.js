@@ -1,6 +1,6 @@
-const fs = require("fs").promises;
-const path = require("path");
-const { checkCommand } = require("./check");
+const fs = require('fs').promises;
+const path = require('path');
+const { checkCommand } = require('./check');
 
 async function registerCommands(dir, client) {
   const files = await fs.readdir(path.join(__dirname, dir));
@@ -10,8 +10,8 @@ async function registerCommands(dir, client) {
 
     if (stat.isDirectory()) registerCommands(path.join(dir, file), client);
     else {
-      if (file.endsWith(".js")) {
-        const fileName = file.substring(0, file.indexOf(".js"));
+      if (file.endsWith('.js')) {
+        const fileName = file.substring(0, file.indexOf('.js'));
 
         try {
           const command = require(path.join(__dirname, dir, file));
@@ -34,8 +34,8 @@ async function registerEvents(dir, client) {
 
     if (stat.isDirectory()) registerEvents(path.join(dir, file), client);
     else {
-      if (file.endsWith(".js")) {
-        const fileName = file.substring(0, file.indexOf(".js"));
+      if (file.endsWith('.js')) {
+        const fileName = file.substring(0, file.indexOf('.js'));
         try {
           const event = require(path.join(__dirname, dir, file));
           client.on(fileName, event.bind(null, client));
@@ -49,5 +49,5 @@ async function registerEvents(dir, client) {
 
 module.exports = {
   registerCommands,
-  registerEvents,
+  registerEvents
 };
