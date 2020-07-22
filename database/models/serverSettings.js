@@ -1,17 +1,17 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const serverSettingsSchema = new mongoose.Schema(
   {
     guildID: Number,
-    prefix: String,
+    prefix: String
   },
   {
-    collection: "server",
+    collection: 'server'
   }
 );
 
-const ServerSettings = mongoose.model("ServerSettings", serverSettingsSchema);
+const ServerSettings = mongoose.model('ServerSettings', serverSettingsSchema);
 
 module.exports = {
-  ServerSettings,
+  ServerSettings
 };

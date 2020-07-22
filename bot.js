@@ -1,7 +1,7 @@
-require("dotenv").config();
-const Discord = require("discord.js");
-const { registerCommands, registerEvents } = require("./util/register");
-const { connectDB } = require("./database/database");
+require('dotenv').config();
+const Discord = require('discord.js');
+const { registerCommands, registerEvents } = require('./util/register');
+const { connectDB } = require('./database/database');
 
 const client = new Discord.Client();
 
@@ -10,6 +10,6 @@ const client = new Discord.Client();
   client.commands = new Discord.Collection();
 
   connectDB(client);
-  await registerCommands("../commands/", client);
-  await registerEvents("../events/discord", client);
+  await registerCommands('../commands/', client);
+  await registerEvents('../events/discord', client);
 })();
