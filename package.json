@@ -9,8 +9,7 @@
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
     "got": "^11.5.1",
-    "mongoose": "^5.9.25",
-    "randomcolor": "^0.6.2"
+    "mongoose": "^5.9.25"
   },
   "devDependencies": {
     "prettier": "^2.0.5"

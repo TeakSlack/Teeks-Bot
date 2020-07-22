@@ -1,10 +1,10 @@
-const { ServerSettings } = require('../../database/models/serverSettings');
+const { ServerSettings } = require("../../database/models/serverSettings");
 
 module.exports = async (client, message) => {
-  if (message.author.bot || message.channel.type !== 'text') return;
+  if (message.author.bot || message.channel.type !== "text") return;
 
   let server = await ServerSettings.findOne({
-    guildID: message.guild.id
+    guildID: message.guild.id,
   });
 
   if (!message.content.toLowerCase().startsWith(server.prefix)) return;

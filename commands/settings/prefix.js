@@ -1,11 +1,11 @@
-const { FLAGS } = require('discord.js').Permissions;
-const { ServerSettings } = require('../../database/models/serverSettings');
+const { FLAGS } = require("discord.js").Permissions;
+const { ServerSettings } = require("../../database/models/serverSettings");
 
-module.exports.name = 'prefix';
+module.exports.name = "prefix";
 module.exports.description =
   "A command used to set the prefix of Teek's bot on the server the command is being used in. Only can be used by server administrators.";
-module.exports.usage = 'prefix <new prefix>';
-module.exports.category = 'settings';
+module.exports.usage = "prefix <new prefix>";
+module.exports.category = "settings";
 
 module.exports.run = async (client, message, args) => {
   if (!message.member.permissions.has(FLAGS.ADMINISTRATOR)) {
