@@ -5,9 +5,7 @@ async function find(subreddit) {
   let parsed = JSON.parse(raw.body);
   let data = parsed[0].data.children[0].data;
 
-  if (data.over_18) {
-    find();
-  }
+  if (data.over_18) find();
 
   return data;
 }
