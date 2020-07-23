@@ -6,7 +6,7 @@ module.exports.usage = 'greyscale <image url or attached image>';
 module.exports.category = 'image';
 
 module.exports.run = async (client, message, args) => {
-  let image = await await util.getImage(message, args);
+  let image = await util.getImage(message, args);
   image.greyscale();
 
   util.sendImage(image, message);
