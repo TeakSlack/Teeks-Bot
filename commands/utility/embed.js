@@ -11,7 +11,7 @@ module.exports.description =
 module.exports.usage = 'embed <success, yeild, fail>';
 module.exports.category = 'utility';
 
-module.exports.run = (client, message, args) => {
+module.exports.run = (client, message, args, user) => {
   if (!args[0]) return;
 
   const embed = new MessageEmbed();

@@ -7,7 +7,7 @@ module.exports.description =
 module.exports.usage = 'ping';
 module.exports.category = 'utility';
 
-module.exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args, user) => {
   const embed = new MessageEmbed()
     .setColor(EMBED_SUCCESS)
     .addField(

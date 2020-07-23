@@ -2,24 +2,27 @@ const jimp = require('jimp');
 const validator = require('validator').default;
 const { MessageAttachment } = require('discord.js');
 
-module.exports.getImage = async (message, args) => {
-  let imageURL;
-  let jimpStream;
-
+module.exports.getURL = (message, args, user) => {
   try {
     if (message.attachments.first()) {
-      imageURL = message.attachments.first().url;
+      return message.attachments.first().url;
     } else if (args[0] && validator.isURL(args[0])) {
       if (args[0].match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/gi)) {
-        imageURL = args[0];
+        return args[0];
       }
-    } else {
-      message.channel.send('Attach an image first!');
+    } else if (!args[0]) {
+      let buffer = user.lastResponseWithImage;
+      if (buffer) return buffer;
+      else message.channel.send('Send an image first!');
     }
   } catch (err) {
     console.error(err);
   }
+};
 
+module.exports.getImage = async (message, args, user) => {
+  let jimpStream;
+  let imageURL = this.getURL(message, args, user);
   if (imageURL) {
     try {
       jimpStream = await jimp.read(imageURL);
@@ -31,7 +34,13 @@ module.exports.getImage = async (message, args) => {
 };
 
 module.exports.sendImage = async (image, message) => {
-  let buffer = await image.getBufferAsync(jimp.MIME_JPEG);
+  let buffer = await image.getBufferAsync(jimp.MIME_PNG);
   let attachment = new MessageAttachment(buffer);
   message.channel.send(attachment);
+  return buffer;
+};
+
+module.exports.cacheLastImage = async (imageBuffer, user) => {
+  user.lastResponseWithImage = imageBuffer;
+  user.save();
 };

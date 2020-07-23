@@ -6,8 +6,8 @@ module.exports.description = 'Limits any image to eight colors';
 module.exports.usage = 'clip <image url or attached image>';
 module.exports.category = 'image';
 
-module.exports.run = async (client, message, args) => {
-  let img = await util.getImage(message, args);
+module.exports.run = async (client, message, args, user) => {
+  let img = await util.getImage(message, args, user);
   img.scan(0, 0, img.bitmap.width, img.bitmap.height, (x, y, idx) => {
     let oldR = img.bitmap.data[idx];
     let oldG = img.bitmap.data[idx + 1];
@@ -19,5 +19,6 @@ module.exports.run = async (client, message, args) => {
 
     img.setPixelColor(jimp.rgbaToInt(newR, newG, newB, 255), x, y);
   });
-  util.sendImage(img, message);
+  let buffer = await util.sendImage(img, message);
+  util.cacheLastImage(buffer, user);
 };

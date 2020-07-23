@@ -8,7 +8,7 @@ module.exports.description =
 module.exports.usage = 'imsorryjon';
 module.exports.category = 'fun';
 
-module.exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args, user) => {
   let data = await find('imsorryjon');
 
   let embed = new MessageEmbed()

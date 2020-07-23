@@ -9,7 +9,7 @@ module.exports.description =
 module.exports.usage = 'help <command/category, optional>';
 module.exports.category = 'utility';
 
-module.exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args, user) => {
   let embed = new Discord.MessageEmbed();
   embed.setColor(EMBED_SUCCESS);
   embed.setTitle(`Teek's Bot Command List`);

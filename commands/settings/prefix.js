@@ -7,7 +7,7 @@ module.exports.description =
 module.exports.usage = 'prefix <new prefix>';
 module.exports.category = 'settings';
 
-module.exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args, user) => {
   if (!message.member.permissions.has(FLAGS.ADMINISTRATOR)) {
     message.channel.send(
       `This command can only be used by server administrators, <@${message.member.user.id}>`

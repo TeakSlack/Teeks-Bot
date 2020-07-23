@@ -8,7 +8,7 @@ module.exports.description =
 module.exports.usage = 'deepfried';
 module.exports.category = 'fun';
 
-module.exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args, user) => {
   let data = await find('deepfriedmemes');
 
   let embed = new MessageEmbed()

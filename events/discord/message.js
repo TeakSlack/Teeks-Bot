@@ -1,4 +1,5 @@
 const { ServerSettings } = require('../../database/models/serverSettings');
+const { User } = require('../../database/models/user');
 
 module.exports = async (client, message) => {
   if (message.author.bot || message.channel.type !== 'text') return;
@@ -18,8 +19,23 @@ module.exports = async (client, message) => {
   const command = client.commands.get(commandName);
   if (!command) return;
 
+  let user = await User.findOne({ userID: message.author.id });
+
+  if (!user) {
+    let newUser = new User({
+      userID: message.author.id,
+      username: message.author.username,
+      lastResponseWithImage: null,
+      points: 0
+    });
+    newUser.save();
+    console.log('new user created');
+  }
+
   try {
-    command.run(client, message, args);
+    command.run(client, message, args, user);
+    user.points += 1;
+    console.log(user.points);
   } catch (err) {
     console.error(err);
   }
