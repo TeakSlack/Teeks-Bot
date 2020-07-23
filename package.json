@@ -9,7 +9,9 @@
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
     "got": "^11.5.1",
-    "mongoose": "^5.9.25"
+    "jimp": "^0.14.0",
+    "mongoose": "^5.9.25",
+    "validator": "^13.1.1"
   },
   "devDependencies": {
     "prettier": "^2.0.5"

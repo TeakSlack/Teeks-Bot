@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 let { EMBED_SUCCESS } = require('../../config/colors');
-const categories = ['fun', 'settings', 'utility'];
+const categories = ['fun', 'settings', 'utility', 'image'];
 
 module.exports.name = 'help';
 module.exports.description =
@@ -18,6 +18,8 @@ module.exports.run = async (client, message, args) => {
     embed.addField('<:lolbruh:734583073575927828> Fun', '`help fun`', true);
     embed.addField(':gear: Settings', '`help settings`', true);
     embed.addField(':tools: Utility', '`help utility`', true);
+    embed.addField(':camera: Image', '`help image`', true);
+
     embed.setFooter(`${client.commands.size} total commands`);
   }
   await handleArgs(client, embed, args);

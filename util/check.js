@@ -8,7 +8,7 @@ module.exports.checkCommand = (fileName, command) => {
   if (!command.hasOwnProperty('usage'))
     throw new Error(`${fileName} does not have property of usage!`);
   if (!command.hasOwnProperty('category'))
-    throw new Error(`${fileName} does not have property of usage!`);
+    throw new Error(`${fileName} does not have property of category!`);
 
   if (typeof command.name !== 'string')
     throw new Error(`Name is not a string!`);
