@@ -12,12 +12,13 @@ module.exports.run = async (client, message, args, user) => {
     let oldR = img.bitmap.data[idx];
     let oldG = img.bitmap.data[idx + 1];
     let oldB = img.bitmap.data[idx + 2];
+    let a = img.bitmap.data[idx + 3];
     let factor = 2;
     let newR = Math.round((factor * oldR) / 255) * (255 / factor);
     let newG = Math.round((factor * oldG) / 255) * (255 / factor);
     let newB = Math.round((factor * oldB) / 255) * (255 / factor);
 
-    img.setPixelColor(jimp.rgbaToInt(newR, newG, newB, 255), x, y);
+    img.setPixelColor(jimp.rgbaToInt(newR, newG, newB, a), x, y);
   });
   let buffer = await util.sendImage(img, message);
   util.cacheLastImage(buffer, user);

@@ -33,9 +33,8 @@ module.exports = async (client, message) => {
   }
 
   try {
-    command.run(client, message, args, user);
     user.points += 1;
-    console.log(user.points);
+    command.run(client, message, args, user);
   } catch (err) {
     console.error(err);
   }
