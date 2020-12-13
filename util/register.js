@@ -2,6 +2,10 @@ const fs = require('fs').promises;
 const path = require('path');
 const { checkCommand } = require('./check');
 
+// We must do the industrial division of labor mmm yes
+
+// Theoretical 'registerCommands' call hierarchy
+
 async function registerCommands(dir, client) {
   const files = await fs.readdir(path.join(__dirname, dir));
 
