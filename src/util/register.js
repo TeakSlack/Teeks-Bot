@@ -10,7 +10,7 @@ const registerCommands = async (dir, client) => {
   await getFiles(dir, client);
 };
 
-const getFiles = async (dir, client, files) => {
+const getFiles = async (dir, client) => {
   const files = await fs.readdir(path.join(__dirname, dir));
 
   for (const file of files) {

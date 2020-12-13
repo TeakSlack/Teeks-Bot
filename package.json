@@ -21,7 +21,7 @@
   },
   "scripts": {
     "format": "prettier --write .",
-    "start": "node bot.js",
+    "start": "node dist/bot.js",
     "heroku": "\"git push origin master\" \"git push heroku master\""
   }
 }
