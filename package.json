@@ -14,12 +14,14 @@
     "validator": "^13.1.1"
   },
   "devDependencies": {
+    "@tsconfig/node14": "^1.0.0",
     "concurrently": "^5.2.0",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "typescript": "^4.1.3"
   },
   "scripts": {
     "format": "prettier --write .",
-    "start": "node bot.js",
+    "start": "node dist/bot.js",
     "heroku": "\"git push origin master\" \"git push heroku master\""
   }
 }

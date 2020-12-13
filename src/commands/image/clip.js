@@ -1,5 +1,5 @@
 const jimp = require('jimp');
-const util = require('../../util/imageutil');
+const util = require('../../util/imageUtil');
 
 module.exports.name = 'clip';
 module.exports.description = 'Limits any image to eight colors';

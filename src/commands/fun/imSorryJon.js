@@ -1,4 +1,4 @@
-const find = require('../../util/redditfindutil');
+const find = require('../../util/redditFindUtil');
 const { MessageEmbed } = require('discord.js');
 const { EMBED_SUCCESS } = require('../../config/colors');
 

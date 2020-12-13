@@ -1,4 +1,4 @@
-const util = require('../../util/imageutil');
+const util = require('../../util/imageUtil');
 
 module.exports.name = 'emboss';
 module.exports.description =

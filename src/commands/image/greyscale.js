@@ -1,4 +1,4 @@
-const util = require('../../util/imageutil');
+const util = require('../../util/imageUtil');
 
 module.exports.name = 'greyscale';
 module.exports.description = 'Takes the attached image and turns it greyscale';

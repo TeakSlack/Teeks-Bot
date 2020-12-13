@@ -1,5 +1,5 @@
 const jimp = require('jimp');
-const util = require('../../util/imageutil');
+const util = require('../../util/imageUtil');
 
 module.exports.name = 'gay';
 module.exports.description = 'Overlays a pride flag onto any attached image.';

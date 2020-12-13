@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const { EMBED_SUCCESS } = require('../../config/colors');
-const find = require('../../util/redditfindutil');
+const find = require('../../util/redditFindUtil');
 
 module.exports.name = 'deepfried';
 module.exports.description =

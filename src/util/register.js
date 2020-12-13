@@ -2,7 +2,15 @@ const fs = require('fs').promises;
 const path = require('path');
 const { checkCommand } = require('./check');
 
-async function registerCommands(dir, client) {
+// We must do the industrial division of labor mmm yes
+
+// getFiles (recursive) -> registerCommand
+
+const registerCommands = async (dir, client) => {
+  await getFiles(dir, client);
+};
+
+const getFiles = async (dir, client) => {
   const files = await fs.readdir(path.join(__dirname, dir));
 
   for (const file of files) {
@@ -10,23 +18,27 @@ async function registerCommands(dir, client) {
 
     if (stat.isDirectory()) registerCommands(path.join(dir, file), client);
     else {
-      if (file.endsWith('.js')) {
-        const fileName = file.substring(0, file.indexOf('.js'));
-
-        try {
-          const command = require(path.join(__dirname, dir, file));
-          if (checkCommand(fileName, command)) {
-            client.commands.set(command.name, command);
-          }
-        } catch (err) {
-          console.error(err);
-        }
-      }
+      await registerCommand(file, dir, client);
     }
   }
-}
+};
 
-async function registerEvents(dir, client) {
+const registerCommand = async (file, dir, client) => {
+  if (file.endsWith('.js')) {
+    const fileName = file.substring(0, file.indexOf('.js'));
+
+    try {
+      const command = require(path.join(__dirname, dir, file));
+      if (checkCommand(fileName, command)) {
+        client.commands.set(command.name, command);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }
+};
+
+const registerEvents = async (dir, client) => {
   const files = await fs.readdir(path.join(__dirname, dir));
 
   for (const file of files) {
@@ -45,7 +57,7 @@ async function registerEvents(dir, client) {
       }
     }
   }
-}
+};
 
 module.exports = {
   registerCommands,

@@ -29,7 +29,6 @@ module.exports = async (client, message) => {
       points: 0
     });
     newUser.save();
-    console.log('new user created');
   }
 
   try {
