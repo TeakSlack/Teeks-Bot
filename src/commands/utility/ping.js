@@ -14,9 +14,7 @@ module.exports.run = async (client, message, args, user) => {
       `${client.user.username} ping: `,
       client.ws.ping.toString(),
       false
-    )
-    .addField('Total Servers: ', client.guilds.cache.size)
-    .addField('Total Members', message.guild.memberCount);
+    );
 
   message.channel.send(embed);
 };
