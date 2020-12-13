@@ -1,6 +1,6 @@
-const { MessageEmbed } = require('discord.js');
-const { EMBED_SUCCESS } = require('../../config/colors');
-const find = require('../../util/redditFindUtil');
+import { MessageEmbed, Message, Client } from 'discord.js';
+import { EMBED_SUCCESS } from '../../config/colors';
+import find from '../../util/redditFindUtil';
 
 module.exports.name = 'deepfried';
 module.exports.description =
@@ -8,7 +8,12 @@ module.exports.description =
 module.exports.usage = 'deepfried';
 module.exports.category = 'fun';
 
-module.exports.run = async (client, message, args, user) => {
+module.exports.run = async (
+  client: Client,
+  message: Message,
+  args: any,
+  user: any
+) => {
   let data = await find('deepfriedmemes');
 
   let embed = new MessageEmbed()
